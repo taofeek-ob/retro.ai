@@ -1,0 +1,192 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Retro Theme Variables */
+:root {
+  --retro-bg: #0a0a0a;
+  --retro-surface: #1a1a1a;
+  --retro-surface-light: #2a2a2a;
+  --retro-primary: #00ff41;
+  --retro-secondary: #ff0080;
+  --retro-accent: #00d4ff;
+  --retro-warning: #ffaa00;
+  --retro-text: #00ff41;
+  --retro-text-dim: #66ff66;
+  --retro-text-muted: #44aa44;
+  --retro-border: #00ff41;
+  --retro-glow: 0 0 10px #00ff41;
+  --retro-glow-strong: 0 0 20px #00ff41, 0 0 30px #00ff41;
+}
+
+/* Base Styles */
+body {
+  font-family: 'Courier New', 'Monaco', 'Menlo', monospace;
+  background: var(--retro-bg);
+  color: var(--retro-text);
+  line-height: 1.4;
+}
+
+/* Retro Components */
+.retro-container {
+  background: var(--retro-surface);
+  border: 2px solid var(--retro-border);
+  box-shadow: var(--retro-glow);
+}
+
+.retro-button {
+  background: transparent;
+  border: 2px solid var(--retro-primary);
+  color: var(--retro-primary);
+  padding: 8px 16px;
+  font-family: inherit;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.retro-button:hover {
+  background: var(--retro-primary);
+  color: var(--retro-bg);
+  box-shadow: var(--retro-glow-strong);
+  text-shadow: none;
+}
+
+.retro-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.retro-button-secondary {
+  border-color: var(--retro-secondary);
+  color: var(--retro-secondary);
+}
+
+.retro-button-secondary:hover {
+  background: var(--retro-secondary);
+  color: var(--retro-bg);
+  box-shadow: 0 0 20px var(--retro-secondary);
+}
+
+.retro-input {
+  background: var(--retro-surface);
+  border: 2px solid var(--retro-border);
+  color: var(--retro-text);
+  padding: 12px;
+  font-family: inherit;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.retro-input:focus {
+  box-shadow: var(--retro-glow);
+  border-color: var(--retro-accent);
+}
+
+.retro-select {
+  background: var(--retro-surface);
+  border: 2px solid var(--retro-border);
+  color: var(--retro-text);
+  padding: 8px 12px;
+  font-family: inherit;
+  outline: none;
+}
+
+.retro-text {
+  color: var(--retro-text);
+  text-shadow: 0 0 5px currentColor;
+}
+
+.retro-text-dim {
+  color: var(--retro-text-dim);
+}
+
+.retro-text-muted {
+  color: var(--retro-text-muted);
+}
+
+.retro-glow {
+  box-shadow: var(--retro-glow);
+}
+
+.retro-glow-strong {
+  box-shadow: var(--retro-glow-strong);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--retro-surface);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--retro-primary);
+  border: 1px solid var(--retro-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--retro-accent);
+}
+
+/* Animations */
+@keyframes retro-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.retro-blink {
+  animation: retro-blink 1s infinite;
+}
+
+@keyframes retro-pulse {
+  0% { box-shadow: 0 0 5px var(--retro-primary); }
+  50% { box-shadow: 0 0 20px var(--retro-primary), 0 0 30px var(--retro-primary); }
+  100% { box-shadow: 0 0 5px var(--retro-primary); }
+}
+
+.retro-pulse {
+  animation: retro-pulse 2s infinite;
+}
+
+/* Message Streaming Effect */
+@keyframes typing {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.typing-effect {
+  animation: typing 0.1s ease-in;
+}
+
+/* Feature Indicators */
+.feature-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 6px;
+  background: var(--retro-surface-light);
+  border: 1px solid var(--retro-primary);
+  border-radius: 4px;
+  font-size: 10px;
+  text-transform: uppercase;
+  color: var(--retro-primary);
+}
+
+.feature-indicator.active {
+  background: var(--retro-primary);
+  color: var(--retro-bg);
+  box-shadow: 0 0 10px var(--retro-primary);
+}
+
+/* Auth styles */
+.auth-input-field {
+  @apply retro-input w-full;
+}
+
+.auth-button {
+  @apply retro-button w-full;
+}
